@@ -1,0 +1,87 @@
+:root {
+  /* ----------------------------------------
+     BACKGROUNDS — zinc/pearl elegante
+     ---------------------------------------- */
+  --color-bg: #E4E4E7;          /* Gris perla limpio */
+  --color-bg-alt: #D4D4D8;      /* Un paso más oscuro para superficies */
+
+  /* ----------------------------------------
+     FOREGROUNDS
+     ---------------------------------------- */
+  --color-fg: #18181B;
+  --color-fg-bold: #09090B;
+  --color-fg-light: #52525B;
+  --color-fg-muted: rgba(24, 24, 27, 0.4);
+
+  /* ----------------------------------------
+     ACCENT — steel blue sobrio
+     ---------------------------------------- */
+  --color-accent: #3B5998;
+  --color-accent-hover: #2D4475;
+  --color-accent-2: #4A72B8;
+  --color-accent-grad-from: #3B5998;
+  --color-accent-grad-to: #4A72B8;
+  --color-accent-underline: rgba(59, 89, 152, 0.4);
+  --color-accent-underline-strong: rgba(59, 89, 152, 0.85);
+
+  /* ----------------------------------------
+     HERO — slate oscuro elegante
+     ---------------------------------------- */
+  --color-hero: #27272A;
+  --color-on-hero: #F4F4F5;
+
+  /* ----------------------------------------
+     GLASS
+     ---------------------------------------- */
+  --color-glass: rgba(228, 228, 231, 0.75);
+  --color-glass-border: rgba(255, 255, 255, 0.6);
+
+  /* ----------------------------------------
+     FILLS
+     ---------------------------------------- */
+  --color-accent-fill: #3B5998;
+  --color-accent-fill-hover: #2D4475;
+  --color-on-accent: #ffffff;
+
+  /* ----------------------------------------
+     BORDERS — zinc con tinte
+     ---------------------------------------- */
+  --color-border: rgba(39, 39, 42, 0.14);
+  --color-border-bg: rgba(39, 39, 42, 0.07);
+  --color-control-border: #71717A;
+  --color-border-alt: rgba(39, 39, 42, 0.26);
+
+  /* ----------------------------------------
+     SURFACES
+     ---------------------------------------- */
+  --color-surface-subtle: rgba(39, 39, 42, 0.05);
+  --color-surface-hover: rgba(39, 39, 42, 0.09);
+
+  /* ----------------------------------------
+     SIGNAL
+     ---------------------------------------- */
+  --color-signal: #92400E;
+  --color-signal-mark: #B45309;
+
+  /* ----------------------------------------
+     OVERLAY
+     ---------------------------------------- */
+  --color-overlay-darker: rgba(9, 9, 11, 0.55);
+
+  /* ----------------------------------------
+     FOCUS
+     ---------------------------------------- */
+  --color-focus-ring: #3B5998;
+  --color-focus-ring-fill: #4A72B8;
+
+  /* ----------------------------------------
+     SHADOWS — zinc-tinted, más presencia
+     ---------------------------------------- */
+  --shadow-sm:   0 1px 3px rgba(39, 39, 42, 0.1),  0 1px 2px rgba(39, 39, 42, 0.07);
+  --shadow-md:   0 4px 16px rgba(39, 39, 42, 0.13), 0 2px 6px rgba(39, 39, 42, 0.08);
+  --shadow-lg:   0 8px 32px rgba(39, 39, 42, 0.16), 0 4px 12px rgba(39, 39, 42, 0.1);
+  --shadow-xl:   0 16px 48px rgba(39, 39, 42, 0.2), 0 8px 20px rgba(39, 39, 42, 0.13);
+  --shadow-glow: 0 0 24px rgba(59, 89, 152, 0.28),  0 0 48px rgba(59, 89, 152, 0.12);
+  --shadow-card: 0 2px 8px rgba(39, 39, 42, 0.1),   0 1px 3px rgba(39, 39, 42, 0.07);
+  --shadow-card-hover: 0 8px 28px rgba(39, 39, 42, 0.18), 0 3px 10px rgba(39, 39, 42, 0.1);
+}

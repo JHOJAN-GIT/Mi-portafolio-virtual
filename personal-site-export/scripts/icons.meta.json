@@ -1,0 +1,45 @@
+{
+  "inputs": {
+    "accent": "#1e3a5f",
+    "onAccent": "#ffffff",
+    "backgroundLight": "#e8eaef",
+    "backgroundDark": "#151c2b",
+    "monogram": "JM",
+    "name": "Jhojan Manuel Antezana Villegas",
+    "font": {
+      "name": "Display",
+      "family": "Inter",
+      "weight": 500,
+      "style": "normal",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf",
+      "sha256": "8c883f63b2c4157d997319f2c8bc6995ed4357ef371940d31ca159004a4aae63"
+    },
+    "renderer": [
+      {
+        "name": "next",
+        "version": "16.3.8",
+        "integrity": "sha512-U7QEZaTini6wKrb8A8hqLLqYQyCetegKjCpJOyxk642vWoMoU1x5PyZCJFvgYgiptA8xc5j/9xYlZFO7w9Sjmw=="
+      },
+      {
+        "name": "react",
+        "version": "19.3.0",
+        "integrity": "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog=="
+      },
+      {
+        "name": "sharp",
+        "version": "0.35.5",
+        "integrity": "sha512-Ywn4OnzGukp7CDMrp08RQ50YKmuwG47brZgIVPTvBaaAfQlRlygrRqSrxdCiL9M+LlzLBiJ68IR1QqvzHyjC7g=="
+      }
+    ]
+  },
+  "generatorDigest": "5ba4f43bdaf6c701080101225934a6acf227251d9a5c99bd22525137e2b9beed",
+  "files": {
+    "app/favicon.ico": "ea40f3b6a5fb70dd8015efc50b84b1427d185a21225bc2fc5498e149914eefed",
+    "app/icon.png": "d9deff84118e21d6fe5f0b060d656b178db8ed7356a845a02db43c86f739f5c1",
+    "app/apple-icon.png": "5e3e9ec0be8783695a50aa42deac6677560262a2e6cb4f0c64cdcd421fa44034",
+    "public/images/icons/icon-192.png": "186ff84a7a72751663b4b92d0d77defc7211c053bcc71e0d97ef0a70a1a20454",
+    "public/images/icons/icon-512.png": "5f775863a6dd559231a2adc834d3f969a1dfc5a41b44ce0d925ba101fb4ccf46",
+    "public/images/icons/icon-maskable-512.png": "5480690abca4d72b97e7ab6e72cb4ba7f91ed452141a0c08a6c79c07273bc2d9",
+    "app/manifest.json": "0f42308107e3c09069d6b463895e81ebd70e06f982a689529d24a6b1f04085a7"
+  }
+}

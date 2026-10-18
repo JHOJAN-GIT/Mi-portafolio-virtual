@@ -1,0 +1,298 @@
+/* ========================================
+   DARK MODE TOKENS
+   ======================================== */
+[data-theme='dark'] {
+  /* Backgrounds */
+  --color-bg: #1c2333;
+  --color-bg-alt: #151c2b;
+
+  /* Foregrounds */
+  --color-fg: #e8edf5;
+  --color-fg-bold: #f4f7fc;
+  --color-fg-light: #8fa3c0;
+  --color-fg-muted: rgba(232, 237, 245, 0.45);
+
+  /* Accent */
+  --color-accent: #5b8db8;
+  --color-accent-hover: #7aafd4;
+  --color-accent-2: #4a9abe;
+  --color-accent-grad-from: #5b8db8;
+  --color-accent-grad-to: #4a9abe;
+  --color-accent-underline: rgba(91, 141, 184, 0.45);
+  --color-accent-underline-strong: rgba(91, 141, 184, 0.9);
+
+  /* Hero */
+  --color-hero: #080c14;
+  --color-on-hero: #e8edf5;
+
+  /* Glass */
+  --color-glass: rgba(28, 35, 51, 0.78);
+  --color-glass-border: rgba(91, 141, 184, 0.2);
+
+  /* Fills */
+  --color-accent-fill: #2d5a8a;
+  --color-accent-fill-hover: #1e3a5f;
+  --color-on-accent: #ffffff;
+
+  /* Borders */
+  --color-border: rgba(91, 141, 184, 0.18);
+  --color-border-bg: rgba(91, 141, 184, 0.09);
+  --color-control-border: #6a8faa;
+  --color-border-alt: rgba(91, 141, 184, 0.3);
+
+  /* Surfaces */
+  --color-surface-subtle: rgba(91, 141, 184, 0.07);
+  --color-surface-hover: rgba(91, 141, 184, 0.13);
+
+  /* Signal */
+  --color-signal: #f0a030;
+  --color-signal-mark: #d48820;
+
+  /* Focus */
+  --color-focus-ring: #5b8db8;
+  --color-focus-ring-fill: #4a9abe;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 24px rgba(91, 141, 184, 0.35), 0 0 48px rgba(91, 141, 184, 0.15);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   LIGHT MODE — Overrides específicos
+   Los tokens base ya usan zinc/pearl (#E4E4E7).
+   Aquí sólo ajustamos los elementos que tienen
+   colores hardcodeados o necesitan tratamiento especial.
+   ======================================== */
+
+/* ----------------------------------------
+   NAVBAR light — zinc oscuro (#27272A), mismo tono del hero
+   ---------------------------------------- */
+[data-theme='light'] .site-header {
+  background-color: #27272A;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
+}
+
+[data-theme='light'] .site-header .logo-text {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .site-header .nav-link {
+  color: #A1A1AA;
+}
+
+[data-theme='light'] .site-header .nav-link:hover,
+[data-theme='light'] .site-header .nav-link:focus-visible,
+[data-theme='light'] .site-header .nav-link.active {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .site-header .nav-link::after {
+  background: #A1A1AA;
+}
+
+[data-theme='light'] .site-header .theme-toggle {
+  color: #A1A1AA;
+}
+
+[data-theme='light'] .site-header .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .site-header .hamburger-icon span {
+  background-color: #A1A1AA;
+}
+
+/* ----------------------------------------
+   HERO light — zinc oscuro con los mismos orbs, coherente
+   ---------------------------------------- */
+[data-theme='light'] .hero {
+  background: #27272A;
+}
+
+/* Los orbs del hero se ven bien sobre zinc oscuro, sin cambios */
+
+/* ----------------------------------------
+   FOOTER light — mismo zinc oscuro
+   ---------------------------------------- */
+[data-theme='light'] .site-footer-new {
+  background: #27272A !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Apagar pseudo-orbs del footer (radiales diseñados para negro absoluto) */
+[data-theme='light'] .site-footer-new::before,
+[data-theme='light'] .site-footer-new::after {
+  opacity: 0.4;
+}
+
+[data-theme='light'] .footer-name {
+  background: linear-gradient(135deg, #F4F4F5 0%, #A1A1AA 60%, #71717A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .footer-role {
+  color: rgba(244, 244, 245, 0.5);
+}
+
+[data-theme='light'] .footer-copyright {
+  color: rgba(244, 244, 245, 0.35);
+}
+
+[data-theme='light'] .footer-copyright a:hover {
+  color: rgba(161, 161, 170, 0.9);
+}
+
+[data-theme='light'] .footer-links-label,
+[data-theme='light'] .footer-social-label {
+  color: rgba(161, 161, 170, 0.6);
+}
+
+[data-theme='light'] .footer-links-grid a {
+  color: rgba(244, 244, 245, 0.55);
+}
+
+[data-theme='light'] .footer-links-grid a:hover {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .site-footer-new .icons li a {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(161, 161, 170, 0.7);
+}
+
+[data-theme='light'] .site-footer-new .icons li a:hover {
+  border-color: rgba(244, 244, 245, 0.5);
+  color: #F4F4F5;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ----------------------------------------
+   SLIDE MENU light — mismo zinc del navbar
+   ---------------------------------------- */
+[data-theme='light'] .slide-menu {
+  background: #27272A;
+  border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .slide-menu ul {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .hamburger-ul li {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .hamburger-ul li:first-child {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .hamburger-ul li a span {
+  color: #A1A1AA;
+}
+
+[data-theme='light'] .hamburger-ul li a:hover span,
+[data-theme='light'] .hamburger-ul li a:focus-visible span {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .hamburger-ul li a.active span {
+  color: #F4F4F5;
+}
+
+[data-theme='light'] .slide-menu-close {
+  color: #71717A;
+}
+
+[data-theme='light'] .slide-menu-close:hover {
+  color: #F4F4F5;
+}
+
+/* ----------------------------------------
+   RESUME NAV sticky light — zinc suave para
+   que no choque con el navbar oscuro
+   ---------------------------------------- */
+[data-theme='light'] .resume-nav,
+[data-theme='light'] .about-section-nav {
+  background: #D4D4D8;
+}
+
+/* ========================================
+   DARK MODE — Overrides específicos
+   ======================================== */
+
+[data-theme='dark'] .site-header {
+  background-color: var(--color-bg-alt);
+  border-bottom-color: rgba(91, 141, 184, 0.2);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .site-footer-new {
+  background: linear-gradient(135deg, #080c14 0%, #101828 50%, #080c14 100%) !important;
+  border-top-color: rgba(91, 141, 184, 0.22);
+}
+
+[data-theme='dark'] :where(.theme-portrait) img {
+  filter: brightness(0.88) saturate(0.95);
+}
+
+[data-theme='dark'] .hero::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(91, 141, 184, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 80% 70%, rgba(74, 154, 190, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30, 58, 95, 0.15) 0%, transparent 70%);
+}
+
+[data-theme='dark'] .project-card {
+  background: rgba(28, 35, 51, 0.7);
+  border-color: rgba(91, 141, 184, 0.18);
+}
+
+[data-theme='dark'] .project-card--linked:hover {
+  border-color: rgba(91, 141, 184, 0.45);
+  box-shadow: var(--shadow-xl), 0 0 32px rgba(91, 141, 184, 0.25);
+}
+
+[data-theme='dark'] code {
+  background: rgba(91, 141, 184, 0.12);
+  border-color: rgba(91, 141, 184, 0.18);
+}
+
+[data-theme='dark'] blockquote {
+  border-image: linear-gradient(to bottom, #5b8db8, #4a9abe) 1;
+}
+
+[data-theme='dark'] p a {
+  background-image: linear-gradient(
+    transparent calc(100% - 1.5px),
+    var(--color-accent-underline) 1.5px
+  );
+}
+
+[data-theme='dark'] p a:hover {
+  background-image: linear-gradient(transparent calc(100% - 1.5px), var(--color-accent) 1.5px);
+}
+
+[data-theme='dark'] .prose a,
+[data-theme='dark'] .prose p a,
+[data-theme='dark'] .prose a:hover,
+[data-theme='dark'] .prose p a:hover {
+  background-image: none;
+}
+
+[data-theme='dark'] .home-writing-item:hover {
+  background: rgba(28, 35, 51, 0.85);
+  border-top-color: transparent;
+}
+
+[data-theme='dark'] .home-writing {
+  border-image: linear-gradient(90deg, #5b8db8, #4a9abe) 1;
+}

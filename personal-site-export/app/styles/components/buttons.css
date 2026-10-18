@@ -1,0 +1,194 @@
+/* ========================================
+   BUTTON COMPONENTS — Glassmorphism premium
+   Gradient fill, glow on hover, ripple effect,
+   3D elevation, animated border.
+   ======================================== */
+
+@layer components {
+
+  /* ----------------------------------------
+     PRIMARY BUTTON
+     Gradient fill + glow + 3D lift
+     ---------------------------------------- */
+  .button {
+    appearance: none;
+    position: relative;
+    overflow: hidden;
+
+    /* Gradient background */
+    background: linear-gradient(135deg, var(--color-accent-grad-from) 0%, var(--color-accent-2) 100%);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+
+    /* Gradient border via background-clip trick */
+    background-clip: padding-box;
+
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    height: 2.875rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    text-decoration: none !important;
+    background-image: none;
+
+    /* Depth shadow */
+    box-shadow:
+      0 4px 16px rgba(30, 58, 95, 0.4),
+      0 1px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out),
+      filter var(--duration-fast) var(--ease-out);
+  }
+
+  /* Gradient border overlay */
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1.5px solid transparent;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(45, 106, 143, 0.4)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  /* Ripple pseudo-element */
+  .button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    transition: width 0.45s ease, height 0.45s ease, opacity 0.45s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .button:hover {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(1.12);
+    box-shadow:
+      0 8px 28px rgba(30, 58, 95, 0.55),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(45, 106, 143, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .button:hover::before {
+    opacity: 1;
+  }
+
+  .button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+      0 2px 8px rgba(30, 58, 95, 0.35),
+      0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ripple on active */
+  .button:active::after {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+
+  .button:focus-visible {
+    outline: var(--rule-strong) solid var(--color-focus-ring);
+    outline-offset: 3px;
+  }
+
+  /* ----------------------------------------
+     SECONDARY BUTTON — Glass outline
+     ---------------------------------------- */
+  .button-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: var(--blur-glass-sm);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-fg-bold);
+    box-shadow: var(--shadow-sm);
+
+    /* Override gradient */
+    background-image: none;
+  }
+
+  .button-secondary::before {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.3), rgba(45, 106, 143, 0.3)) border-box;
+  }
+
+  .button-secondary:hover {
+    background: rgba(30, 58, 95, 0.1);
+    border-color: rgba(30, 58, 95, 0.5);
+    color: var(--color-accent);
+    filter: none;
+    box-shadow:
+      0 6px 20px rgba(30, 58, 95, 0.2),
+      0 0 0 1px rgba(30, 58, 95, 0.3);
+  }
+
+  .button-secondary:active {
+    background: rgba(30, 58, 95, 0.15);
+    transform: translateY(0) scale(0.98);
+  }
+
+  .button-secondary:focus-visible {
+    outline-color: var(--color-focus-ring);
+  }
+
+  /* Hero variant — inverted for dark poster */
+  .hero .button {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: var(--blur-glass-sm);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background-image: none;
+  }
+
+  .hero .button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow:
+      0 8px 28px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    filter: none;
+  }
+
+  /* Actions list */
+  .actions {
+    list-style: none;
+    margin: var(--spacing-element) 0 0 0;
+    padding: 0;
+  }
+
+  .actions li {
+    display: inline-block;
+    margin: 0 0.75em 0 0;
+    padding: 0;
+  }
+
+  .actions li:last-child {
+    margin-right: 0;
+  }
+}

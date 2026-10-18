@@ -1,0 +1,40 @@
+import { resolveReadings } from '@/lib/readings';
+import {
+  AGE_PRECISION_FULL,
+  AGE_PRECISION_STATIC,
+  ageAt,
+  utcDate,
+} from '@/lib/telemetry';
+
+import declarations from '../../data/stats/personal';
+import LiveAge from './LiveAge';
+import Table from './Table';
+
+/**
+ * The personal stats table stays server-rendered. Only its age value is a
+ * client leaf, so no-JavaScript readers receive a real, dated snapshot instead
+ * of the old dash placeholder.
+ */
+export default function PersonalStats() {
+  const renderedAt = Date.now();
+  const readings = resolveReadings(declarations, {
+    age: (
+      <LiveAge
+        initial={ageAt(renderedAt, AGE_PRECISION_STATIC)}
+        note={`al ${utcDate(renderedAt)}`}
+        precision={AGE_PRECISION_FULL}
+      />
+    ),
+  });
+
+  return (
+    <>
+      <Table data={readings} />
+      <p className="stats-source-note" data-source="profile">
+        Los datos de perfil provienen del perfil mantenido del sitio. La edad
+        se actualiza en tu navegador; sin JavaScript o con movimiento reducido,
+        permanece como la instantánea fechada al renderizar esta página.
+      </p>
+    </>
+  );
+}

@@ -1,0 +1,411 @@
+/* ========================================================
+   LIGHT MODE EFFECTS
+   Efectos visuales para modo día: cards con profundidad,
+   tags con vida, entries con interacción, superficies con
+   carácter. Diseño masculino, limpio, moderno y elegante.
+   ======================================================== */
+
+/* --------------------------------------------------------
+   BODY TEXTURE — fondo perla con textura sutil
+   -------------------------------------------------------- */
+[data-theme='light'] body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 89, 152, 0.06) 0%, transparent 70%);
+}
+
+/* --------------------------------------------------------
+   PROJECT CARDS — profundidad, borde vivo, elevación
+   -------------------------------------------------------- */
+[data-theme='light'] .project-card {
+  background: #FAFAFA;
+  border: 1px solid #D4D4D8;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s ease;
+}
+
+[data-theme='light'] .project-card--linked:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #A1A1AA;
+}
+
+[data-theme='light'] .project-card-image {
+  background: #E4E4E7;
+}
+
+/* Línea de acento superior al hacer hover — detalle premium */
+[data-theme='light'] .project-card--linked::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3B5998, #A1A1AA);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+[data-theme='light'] .project-card {
+  position: relative;
+}
+
+[data-theme='light'] .project-card--linked:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------
+   PROJECT ENTRY (lista shipped) — hover con borde izquierdo
+   -------------------------------------------------------- */
+[data-theme='light'] .project-entry {
+  position: relative;
+  border-bottom-color: #D4D4D8;
+  transition:
+    background-color 0.18s ease,
+    padding-left 0.18s ease;
+}
+
+[data-theme='light'] a.project-entry:hover,
+[data-theme='light'] a.project-entry:focus-visible {
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-sm);
+  padding-left: 0.75rem;
+  box-shadow: inset 3px 0 0 #3B5998;
+}
+
+[data-theme='light'] a.project-entry:hover .project-entry-title,
+[data-theme='light'] a.project-entry:focus-visible .project-entry-title {
+  color: #3B5998;
+}
+
+/* --------------------------------------------------------
+   SKILL TAGS — glassmorphism sutil sobre zinc
+   -------------------------------------------------------- */
+[data-theme='light'] .skill-tag {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: #C4C4C8;
+  box-shadow: 0 1px 3px rgba(39, 39, 42, 0.07);
+  backdrop-filter: blur(4px);
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease,
+    color 0.16s ease;
+}
+
+[data-theme='light'] .skill-tag:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #71717A;
+  box-shadow: 0 2px 8px rgba(39, 39, 42, 0.12);
+  transform: translateY(-1px);
+  color: #18181B;
+}
+
+[data-theme='light'] .skill-tag--deep {
+  background: rgba(59, 89, 152, 0.07);
+  border-color: rgba(59, 89, 152, 0.3);
+  color: #2D4475;
+}
+
+[data-theme='light'] .skill-tag--deep:hover {
+  background: rgba(59, 89, 152, 0.13);
+  border-color: rgba(59, 89, 152, 0.5);
+  color: #27272A;
+}
+
+/* --------------------------------------------------------
+   TECH TAGS — mismo tratamiento glass
+   -------------------------------------------------------- */
+[data-theme='light'] .tech-tag {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: #C4C4C8;
+  color: #52525B;
+  box-shadow: 0 1px 2px rgba(39, 39, 42, 0.06);
+}
+
+[data-theme='light'] .project-card--linked:hover .tech-tag,
+[data-theme='light'] .project-card--linked:focus-within .tech-tag {
+  border-color: #A1A1AA;
+  color: #27272A;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* --------------------------------------------------------
+   EXPERIENCE SPINE (resume) — job entries con hover
+   -------------------------------------------------------- */
+[data-theme='light'] .jobs-container {
+  transition: background-color 0.18s ease;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem 0 0;
+}
+
+[data-theme='light'] .jobs-container:hover {
+  background: rgba(250, 250, 250, 0.75);
+}
+
+[data-theme='light'] .job-marker {
+  background: #E4E4E7;
+  border-color: #A1A1AA;
+}
+
+[data-theme='light'] .jobs-container--current .job-marker {
+  border-color: #B45309;
+  background: #B45309;
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+}
+
+/* --------------------------------------------------------
+   HOME WRITING ITEMS — hover más pronunciado
+   -------------------------------------------------------- */
+[data-theme='light'] .home-writing-item:hover {
+  background: rgba(250, 250, 250, 0.88);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-sm);
+}
+
+[data-theme='light'] .home-writing {
+  border-image: linear-gradient(90deg, #3B5998, #A1A1AA) 1;
+}
+
+/* --------------------------------------------------------
+   RESUME NAV LINKS — indicador activo más visible
+   -------------------------------------------------------- */
+[data-theme='light'] .resume-nav-link {
+  color: #71717A;
+}
+
+[data-theme='light'] .resume-nav-link:hover {
+  color: #27272A;
+}
+
+[data-theme='light'] .resume-nav-link.active {
+  color: #3B5998;
+}
+
+[data-theme='light'] .resume-nav-link.active::after {
+  background: #3B5998;
+}
+
+/* --------------------------------------------------------
+   SKILL FILTER BUTTONS
+   -------------------------------------------------------- */
+[data-theme='light'] .skillbutton {
+  border-color: #C4C4C8;
+  color: #71717A;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 2px rgba(39, 39, 42, 0.06);
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+[data-theme='light'] .skillbutton:hover {
+  border-color: #71717A;
+  color: #27272A;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 2px 6px rgba(39, 39, 42, 0.1);
+}
+
+[data-theme='light'] .skillbutton-active {
+  background: #3B5998;
+  border-color: #3B5998;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(59, 89, 152, 0.28);
+}
+
+[data-theme='light'] .skillbutton-active:hover {
+  background: #2D4475;
+  border-color: #2D4475;
+  box-shadow: 0 3px 12px rgba(59, 89, 152, 0.35);
+}
+
+/* --------------------------------------------------------
+   CONTACT — email link con acento zinc
+   -------------------------------------------------------- */
+[data-theme='light'] .contact-email-link {
+  border-bottom-color: #A1A1AA;
+  color: #27272A;
+}
+
+[data-theme='light'] .contact-email-link:hover {
+  color: #3B5998;
+  border-bottom-color: #3B5998;
+}
+
+[data-theme='light'] .contact-email-prefix {
+  color: #3B5998;
+}
+
+/* --------------------------------------------------------
+   ABOUT PAGE — section headers con acento
+   -------------------------------------------------------- */
+[data-theme='light'] .about-section h2 {
+  border-top-color: #27272A;
+}
+
+/* --------------------------------------------------------
+   STAT TABLE — zebra suave y valores más vivos
+   -------------------------------------------------------- */
+[data-theme='light'] .stat-table tr:hover th,
+[data-theme='light'] .stat-table tr:hover td {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme='light'] .stat-table-value {
+  color: #27272A;
+}
+
+/* --------------------------------------------------------
+   COURSE LIST — hover pill
+   -------------------------------------------------------- */
+[data-theme='light'] .course-container a:hover,
+[data-theme='light'] .course-container a:focus-visible {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 3px 0 0 #3B5998;
+}
+
+[data-theme='light'] .course-container a:hover .course-number,
+[data-theme='light'] .course-container a:focus-visible .course-number {
+  color: #3B5998;
+}
+
+/* --------------------------------------------------------
+   DEGREE CONTAINER — separador elegante
+   -------------------------------------------------------- */
+[data-theme='light'] .degree-container {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #D4D4D8;
+  transition: border-bottom-color 0.18s ease;
+}
+
+[data-theme='light'] .degree-container:hover {
+  border-bottom-color: #A1A1AA;
+}
+
+/* --------------------------------------------------------
+   BUTTONS — zinc fill
+   -------------------------------------------------------- */
+[data-theme='light'] .button-primary {
+  background: #27272A;
+  color: #F4F4F5;
+  border-color: #27272A;
+  box-shadow: 0 2px 8px rgba(39, 39, 42, 0.2);
+}
+
+[data-theme='light'] .button-primary:hover {
+  background: #3F3F46;
+  border-color: #3F3F46;
+  box-shadow: 0 4px 14px rgba(39, 39, 42, 0.28);
+  transform: translateY(-1px);
+}
+
+[data-theme='light'] .button-secondary {
+  border-color: #A1A1AA;
+  color: #52525B;
+}
+
+[data-theme='light'] .button-secondary:hover {
+  border-color: #27272A;
+  color: #27272A;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------
+   RESUME JSON LINK — chip con zinc
+   -------------------------------------------------------- */
+[data-theme='light'] .resume-json-link {
+  border-color: #C4C4C8;
+  color: #71717A;
+}
+
+[data-theme='light'] .resume-json-link:hover {
+  color: #3B5998;
+  border-color: #3B5998;
+}
+
+/* --------------------------------------------------------
+   PORTRAIT — sutil warm glow en modo día
+   -------------------------------------------------------- */
+[data-theme='light'] .hero-portrait .theme-portrait {
+  box-shadow:
+    0 8px 32px rgba(39, 39, 42, 0.28),
+    0 0 0 1px rgba(161, 161, 170, 0.3);
+}
+
+[data-theme='light'] .hero-portrait .theme-portrait:hover {
+  box-shadow:
+    0 20px 48px rgba(39, 39, 42, 0.38),
+    0 0 0 1px rgba(161, 161, 170, 0.5);
+}
+
+/* --------------------------------------------------------
+   FOOTER AVATAR — zinc border
+   -------------------------------------------------------- */
+[data-theme='light'] .footer-avatar {
+  border-color: rgba(161, 161, 170, 0.45);
+}
+
+[data-theme='light'] .footer-avatar:hover {
+  border-color: rgba(244, 244, 245, 0.6);
+}
+
+/* --------------------------------------------------------
+   PAGE SECTION TITLES — hairline zinc
+   -------------------------------------------------------- */
+[data-theme='light'] .projects-group-header {
+  border-top-color: #27272A;
+}
+
+[data-theme='light'] .resume-page .experience .title h2,
+[data-theme='light'] .resume-page .education .title h2,
+[data-theme='light'] .resume-page .skills .title h2,
+[data-theme='light'] .resume-page .courses .title h2,
+[data-theme='light'] .resume-page .references .title h2 {
+  border-top-color: #27272A;
+}
+
+/* --------------------------------------------------------
+   HERO TECH BADGES — zinc glass
+   -------------------------------------------------------- */
+[data-theme='light'] .hero-tech-badge {
+  background: rgba(39, 39, 42, 0.08);
+  border-color: rgba(39, 39, 42, 0.18);
+  color: rgba(244, 244, 245, 0.8);
+}
+
+[data-theme='light'] .hero-tech-badge:hover {
+  background: rgba(39, 39, 42, 0.2);
+  border-color: rgba(244, 244, 245, 0.3);
+  color: #F4F4F5;
+  box-shadow: 0 0 12px rgba(39, 39, 42, 0.25);
+}
+
+/* --------------------------------------------------------
+   LOG ENTRIES (about page) — tick zinc activo
+   -------------------------------------------------------- */
+[data-theme='light'] .about-section--log .log-entry::after {
+  background: #E4E4E7;
+  border-color: #A1A1AA;
+}
+
+[data-theme='light'] .about-section--log .log-entry:hover::after {
+  border-color: #27272A;
+  background: #27272A;
+}
+
+/* --------------------------------------------------------
+   NOT FOUND PAGE
+   -------------------------------------------------------- */
+[data-theme='light'] .not-found-code {
+  color: #A1A1AA;
+}

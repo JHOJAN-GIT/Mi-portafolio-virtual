@@ -1,0 +1,39 @@
+/* ========================================
+   EFFECT TOKENS
+   Glassmorphism premium — blur, radius, glow, depth.
+   ======================================== */
+
+@theme {
+  /* ===================
+     BORDER RADIUS
+     Rounded for glass surfaces; full for pills/dots.
+     =================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  /* ===================
+     RULES
+     =================== */
+  --rule: 1px;
+  --rule-strong: 2px;
+
+  /* ===================
+     GLASS BLUR
+     =================== */
+  --blur-glass: blur(16px);
+  --blur-glass-sm: blur(8px);
+  --blur-glass-lg: blur(28px);
+
+  /* ===================
+     SHADOWS — multi-layer depth
+     =================== */
+  --shadow-sm: 0 2px 8px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 48px rgba(30, 58, 95, 0.18), 0 8px 20px rgba(0,0,0,0.10);
+  --shadow-xl: 0 32px 72px rgba(30, 58, 95, 0.22), 0 12px 32px rgba(0,0,0,0.14);
+  --shadow-glow: 0 0 32px rgba(30, 58, 95, 0.45), 0 0 64px rgba(30, 58, 95, 0.2);
+}
