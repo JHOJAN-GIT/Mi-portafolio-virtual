@@ -5,11 +5,6 @@
  *
  * - `shipped` — selected production work Jhojan built or contributed to.
  * - `archive` — earlier experiments and academic projects.
- *
- * Every shipped entry declares the role in `src/data/resume/work.ts` that
- * backs its dates and numeric claims. Archive entries are maintained here
- * directly. Those checks establish internal consistency; factual claims and
- * public destinations still need primary-source and live-link review.
  */
 export type ProjectStatus = 'shipped' | 'archive';
 
@@ -51,13 +46,14 @@ export interface Project {
 /**
  * Hand-ordered, most recent activity first within each group. Live work leads,
  * then sorts by its own start date; finished work sorts by its end (or one-off)
- * date. `projects.test.ts` pins the complete comparator, including ties.
+ * date.
  */
 const data: Project[] = [
+  // ─── TRABAJO SELECCIONADO ────────────────────────────────────────────────
   {
     title: 'Automatización de Reportes UNCP',
     subtitle: 'Dirección de Proyección Social y Extensión Cultural — UNCP',
-    link: 'https://www.uncp.edu.pe',
+    link: 'https://uncp.edu.pe/la-universidad/extension-cultural-y-proyeccion-social-2/',
     sourceWork: 'Dirección de Proyección Social y Extensión Cultural — UNCP',
     date: '2024-01-01',
     ongoing: true,
@@ -65,12 +61,59 @@ const data: Project[] = [
     tech: ['Python', 'Pandas', 'Openpyxl'],
     status: 'shipped',
   },
+
+  // ─── ARCHIVO ─────────────────────────────────────────────────────────────
+  {
+    title: 'Dashboard de Gestión de Estudiantes',
+    subtitle: 'Práctica Semana 07 Parte 2 — DAW, UNCP',
+    link: 'https://github.com/JHOJAN-GIT/PRACTICA-SEM-07-PARTE-02',
+    date: '2026-10-15',
+    desc: 'SPA con React 19 + Vite que implementa un gestor de estudiantes con registro, filtrado, ordenación y persistencia. Aplica correctamente todos los hooks de React: useReducer, useContext, useEffect, useMemo, useCallback, useRef, y custom hooks (useLocalStorage, useDebounce).',
+    tech: ['React', 'Vite', 'JavaScript', 'CSS'],
+    status: 'archive',
+  },
+  {
+    title: 'Sistema de Gestión de Biblioteca Universitaria',
+    subtitle: 'Parcial DAW — UNCP',
+    link: 'https://github.com/JHOJAN-GIT/PARCIAL-DAW',
+    date: '2026-10-13',
+    desc: 'Sistema fullstack con React 19, TypeScript, Vite y Tailwind CSS para gestión de libros, usuarios y préstamos universitarios. Incluye generación de comprobantes en PDF con jsPDF y persistencia con Local Storage.',
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'jsPDF'],
+    status: 'archive',
+  },
+  {
+    title: 'Práctica Semana 07',
+    subtitle: 'React + Vite — DAW, UNCP',
+    link: 'https://github.com/JHOJAN-GIT/PRACTICA-SEM-07',
+    date: '2026-10-14',
+    desc: 'Práctica académica de React con Vite desarrollada en el curso Desarrollo de Aplicaciones Web de la UNCP. Configuración de proyecto con HMR, Oxlint y plugins oficiales de React.',
+    tech: ['React', 'Vite', 'JavaScript'],
+    status: 'archive',
+  },
+  {
+    title: 'Práctica Semana 06',
+    subtitle: 'React + Vite — DAW, UNCP',
+    link: 'https://github.com/JHOJAN-GIT/PRACTICA_SEM_06',
+    date: '2026-10-07',
+    desc: 'Práctica académica de React con Vite desarrollada en el curso Desarrollo de Aplicaciones Web de la UNCP. Implementación de componentes y manejo de estado con hooks.',
+    tech: ['React', 'Vite', 'JavaScript'],
+    status: 'archive',
+  },
+  {
+    title: 'Práctica Calificada — Semana 3',
+    subtitle: 'Práctica calificada — DAW, UNCP',
+    link: 'https://github.com/JHOJAN-GIT/Practica_Calificada_Sem_3-2',
+    date: '2026-09-17',
+    desc: 'Práctica calificada del curso Desarrollo de Aplicaciones Web en la UNCP. Desarrollo de aplicación web con fundamentos de programación frontend.',
+    tech: ['JavaScript', 'HTML', 'CSS'],
+    status: 'archive',
+  },
   {
     title: 'Portafolio Personal',
     subtitle: 'Proyecto personal',
-    link: 'https://github.com/JHOJAN-GIT',
-    date: '2024-06-01',
-    desc: 'Sitio de portafolio personal construido con Next.js, TypeScript y Tailwind CSS.',
+    link: 'https://github.com/JHOJAN-GIT/Mi-portafolio-virtual',
+    date: '2026-10-18',
+    desc: 'Sitio de portafolio personal construido con Next.js 15, TypeScript y Tailwind CSS. Incluye modo oscuro/claro, diseño responsivo, sección de proyectos, currículum y blog.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
     status: 'archive',
   },
