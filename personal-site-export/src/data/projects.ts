@@ -64,6 +64,15 @@ const data: Project[] = [
 
   // ─── ARCHIVO ─────────────────────────────────────────────────────────────
   {
+    title: 'Sistema de Gestión Hotelera',
+    subtitle: 'Proyecto académico — UNCP',
+    link: 'https://github.com/JHOJAN-GIT/Sistema-de-Gestion-Hotelera',
+    date: '2026-10-18',
+    desc: 'Sistema web de administración hotelera desarrollado en PHP. Incluye gestión de reservas, check-out, registro de nuevos huéspedes, vista de huéspedes actuales, cancelación de reservas y envío de códigos de verificación por correo. Panel de administrador con autenticación y control de sesiones.',
+    tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    status: 'archive',
+  },
+  {
     title: 'Dashboard de Gestión de Estudiantes',
     subtitle: 'Práctica Semana 07 Parte 2 — DAW, UNCP',
     link: 'https://github.com/JHOJAN-GIT/PRACTICA-SEM-07-PARTE-02',
