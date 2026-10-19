@@ -1,124 +1,116 @@
-# Michael D'Angelo: Personal Site
+# Jhojan Manuel Antezana Villegas — Portafolio Personal
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mldangelo/personal-site/node.js.yml?branch=main)](https://github.com/mldangelo/personal-site/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/JHOJAN-GIT/Mi-portafolio-virtual/node.js.yml?branch=main)](https://github.com/JHOJAN-GIT/Mi-portafolio-virtual/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site/network/members)
+[![Deploy](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://mi-portafolio-virtual-theta.vercel.app)
 
-The source for [mldangelo.com](https://mldangelo.com), a portfolio, résumé,
-project archive, and writing site built with
-[Next.js](https://nextjs.org/), [React](https://react.dev/),
-[TypeScript](https://www.typescriptlang.org/), and
-[Tailwind CSS](https://tailwindcss.com/).
+Portafolio personal y profesional de **Jhojan Manuel Antezana Villegas**, estudiante de Ingeniería de Sistemas en la [Universidad Nacional del Centro del Perú (UNCP)](https://www.uncp.edu.pe), con enfoque en desarrollo de software y especial inclinación por el frontend.
 
-The architecture is reusable and MIT licensed. The content and visual design
-are personal, so a fork needs a full rebrand.
+**[Ver sitio en vivo →](https://mi-portafolio-virtual-theta.vercel.app)**
 
-**[Visit the live site →](https://mldangelo.com)**
+---
 
-## What is here
+## Sobre mí
 
-- A statically exported Next.js 16 site deployed to GitHub Pages.
-- A responsive light/dark design system built from semantic CSS tokens.
-- Markdown writing with drafts, RSS, and page metadata.
-- A filterable résumé that still prints in full.
-- Tests for components, content, metadata, and the final static export.
+- 📍 Huancayo, Perú — Andes centrales, 3,000+ msnm
+- 🎓 Ing. de Sistemas — UNCP (2022 – presente), ciclo 8.°
+- 💼 Trabajo en la Dirección de Proyección Social y Extensión Cultural de la UNCP automatizando reportes con Python
+- 💻 Programando desde 2019 — C++, Python, PHP, JavaScript, TypeScript, React, Next.js
 
-## Get started
+---
 
-### With a coding agent
+## Proyectos destacados
 
-Open your fork in a coding agent and ask:
+### Sistema de Gestión Hotelera con Chatbot
+Sistema web completo en PHP + MySQL con reservas, check-in/out, panel de administrador, roles de usuario y chatbot integrado para consultas de disponibilidad en tiempo real.
 
-```text
-Read AGENTS.md, use the Node version in .nvmrc, install the locked
-dependencies, and start the development server. Do not change the site yet.
-Tell me the local URL and report any setup failure with its exact output.
+### Sistema de Puntajes en Tiempo Real para Jurados
+Plataforma de votación en vivo para eventos académicos. Primera versión en PHP, reescrita en Next.js + WebSockets para actualización instantánea de puntajes sin recarga.
+
+### Automatización de Certificados — UNCP
+Script Python que simula el ERP ADESA, descarga planillas de participantes, procesa los datos con Pandas y genera certificados institucionales en PDF automáticamente.
+
+---
+
+## Stack tecnológico
+
+| Área | Tecnologías |
+|------|-------------|
+| Frontend | React · Next.js 16 · TypeScript · Tailwind CSS · Vite |
+| Backend / Scripts | Python · PHP · Node.js |
+| Bases de datos | MySQL · PostgreSQL · MongoDB · SQL Server |
+| Herramientas | Git · GitHub · VS Code · XAMPP · Pandas · Openpyxl |
+
+---
+
+## Estructura del proyecto
+
+```
+personal-site-export/
+├── app/                  → Páginas y layouts (App Router de Next.js)
+│   ├── about/            → Página "Sobre mí"
+│   ├── resume/           → Currículum
+│   ├── projects/         → Proyectos
+│   ├── cuaderno/         → Cuaderno de aprendizaje DAW — UNCP
+│   ├── contact/          → Contacto
+│   └── styles/           → Sistema de diseño en CSS tokens
+├── src/
+│   ├── components/       → Componentes React
+│   ├── data/             → Datos del sitio (perfil, proyectos, skills, etc.)
+│   └── lib/              → Utilidades
+├── public/
+│   └── images/           → Imágenes del sitio
+└── content/
+    └── writing/          → Artículos en Markdown
 ```
 
-### Manual setup
+---
 
-With [GitHub CLI](https://cli.github.com/) and
-[nvm](https://github.com/nvm-sh/nvm) installed:
+## Desarrollo local
+
+Requisitos: [Node.js](https://nodejs.org) (ver `.nvmrc`) y npm.
 
 ```bash
-gh repo fork mldangelo/personal-site --clone
-cd personal-site
-nvm install
+git clone https://github.com/JHOJAN-GIT/Mi-portafolio-virtual.git
+cd Mi-portafolio-virtual/personal-site-export
 npm ci
 npm run dev
 ```
 
-If you use another version manager, choose a release accepted by `engines.node`
-in `package.json`.
+El servidor de desarrollo estará en `http://localhost:3000`.
 
-### GitHub Codespaces
-
-1. Click **Fork** at the top of this page.
-2. In your fork, click **Code**, choose **Codespaces**, then create a codespace.
-3. Run:
+### Comandos disponibles
 
 ```bash
-nvm install
-npm ci
-npm run dev
+npm run dev          # Servidor de desarrollo con Turbopack
+npm run build        # Build de producción (exportación estática)
+npm run lint         # Linting con Biome
+npm run type-check   # Verificación de tipos TypeScript
+npm test             # Tests con Vitest
+npm run format       # Formatear con Prettier + Biome
 ```
 
-Codespaces provides the tools, so you do not need to install them locally.
+---
 
-## Adapt it with a coding agent
+## Despliegue
 
-When you are ready to customize the site, give the agent your résumé, profile
-details, links, images, and intended site URL. Try:
+El sitio está desplegado en **Vercel** con deploy automático en cada push a `main`.
 
-```text
-Read AGENTS.md and docs/adapting-guide.md, set up the repository, then rebrand
-this fork for [NAME] with the details and assets I provide. Work on a topic
-branch and preserve the current routes and design unless I say otherwise.
-Inventory the existing posts, external writing, résumé, and projects before
-changing the shared identity. Do not relabel that content as mine. Ask whether
-unmatched personal content should keep its original attribution, be replaced,
-or be removed. Use the guide's reference map to update every identity surface
-and generated asset. Search for remaining upstream details and run the full
-validation suite. Do not commit, push, merge, change GitHub settings, create
-secrets, or modify DNS. Report the external steps that remain.
-```
+- **URL de producción:** [mi-portafolio-virtual-theta.vercel.app](https://mi-portafolio-virtual-theta.vercel.app)
+- **Root Directory en Vercel:** `personal-site-export`
+- **Framework:** Next.js (detectado automáticamente)
 
-The **[adapting guide](./docs/adapting-guide.md)** has focused prompts for
-writing, feature removal, visual changes, and deployment, plus a map of the
-files an agent should inspect.
+---
 
-## Commands
+## Contacto
 
-```bash
-npm run dev             # Start the development server
-npm run format          # Format with Prettier and Biome
-npm run lint            # Run Biome checks
-npm run type-check      # Run TypeScript
-npm test                # Run Vitest
-npm run build           # Build the production static export
-npm run verify-export   # Inspect the generated HTML and XML
-npm run measure-export  # Weigh the export against scripts/budget.json
-npm run og              # Regenerate the site and per-post share cards
-npm run og:check        # Verify the card ledger and a fresh byte-for-byte render
-npm run og:check:ledger # Verify the ledger alone, with no network access
-```
+- **Email:** e_2022200411H@uncp.edu.pe
+- **GitHub:** [JHOJAN-GIT](https://github.com/JHOJAN-GIT)
+- **LinkedIn:** [jhojan-antezana](https://www.linkedin.com/in/jhojan-antezana-8a22001ab/)
+- **Instagram:** [@jhojanantezana2](https://www.instagram.com/jhojanantezana2/)
 
-CI checks formatting, linting, types, the share cards, tests, the production
-build, the exported site, and its size against the budget in
-`scripts/budget.json` on every pull request.
+---
 
-## Deploy
+## Licencia
 
-Pushes to `main` deploy the same static build that CI validates. See the
-[adapting guide](./docs/adapting-guide.md#deployment-reference) for URL and
-domain setup.
-
-## Contributing
-
-See the [contributing guide](./docs/contributing.md) for setup, branch and commit
-conventions, validation, and pull request expectations.
-
-## License
-
-[MIT](./LICENSE). Use it however you want.
+[MIT](./LICENSE) — Basado en el template original de [mldangelo/personal-site](https://github.com/mldangelo/personal-site), adaptado y personalizado completamente.
