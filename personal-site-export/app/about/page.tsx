@@ -41,7 +41,7 @@ export default function AboutPage() {
           ]),
         ]}
       />
-      <section className="about-page">
+      <section className="about-page about-page--wide">
         <header className="about-header">
           <h1 className="page-title">Sobre mí</h1>
         </header>
