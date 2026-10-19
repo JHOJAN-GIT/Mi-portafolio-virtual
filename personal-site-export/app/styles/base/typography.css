@@ -29,6 +29,7 @@
     line-height: var(--leading-tight);
     margin: 0 0 0.6em 0;
     text-wrap: balance;
+    overflow-wrap: break-word;
   }
 
   h1 a,
@@ -135,4 +136,9 @@
     margin: var(--spacing-element) 0;
     opacity: 0.4;
   }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
 }

@@ -434,12 +434,14 @@
   font-weight: var(--font-weight-bold);
   margin: 0;
   letter-spacing: var(--tracking-tight);
+  overflow-wrap: break-word;
 }
 
 .footer-role {
   font-size: var(--text-sm);
   color: var(--color-fg-light);
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .footer-copyright {
@@ -584,5 +586,11 @@
 
   .footer-social {
     gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

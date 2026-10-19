@@ -9,7 +9,6 @@ export default function Course({ data }: CourseProps) {
     <li className="course-container">
       <a href={data.link} className="course-link">
         <div className="course-header">
-          <span className="course-number">{data.number}</span>
           <span className="course-name">{data.title}</span>
         </div>
         {data.description && (

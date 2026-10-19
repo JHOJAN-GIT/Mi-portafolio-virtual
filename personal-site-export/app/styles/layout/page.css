@@ -42,9 +42,10 @@
 
 /* Page header styles */
 .page-title {
-  font-size: var(--text-3xl);
+  font-size: clamp(var(--text-2xl), 7vw, var(--text-3xl));
   font-weight: var(--font-weight-black);
   margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
 }
 
 .page-subtitle {

@@ -395,6 +395,8 @@
   color: var(--color-fg-muted);
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 /* ── Hero de semana ── */
@@ -1497,7 +1499,7 @@
 
 .semana-imgs--layout-default {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -1523,6 +1525,15 @@
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
+}
+
+@media (max-width: 480px) {
+  .semana-contenido p,
+  .semana-reflexion-texto p {
+    text-align: left;
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
 }
 
 /* ================================================================

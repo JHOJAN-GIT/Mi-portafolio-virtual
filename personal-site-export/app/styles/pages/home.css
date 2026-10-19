@@ -220,6 +220,7 @@
   color: rgba(240, 236, 255, 0.88);
   animation: fade-up 0.7s var(--ease-out) both;
   animation-delay: 0.3s;
+  overflow-wrap: break-word;
 }
 
 .hero-summary {
@@ -477,6 +478,7 @@
   line-height: 1.2;
   text-wrap: pretty;
   transition: color var(--duration-fast) var(--ease-out);
+  overflow-wrap: break-word;
 }
 
 .home-writing-arrow {
@@ -533,7 +535,6 @@
 
   .hero-portrait {
     width: min(100%, 11rem);
-    order: -1;
   }
 
   .hero-tech-badges {

@@ -330,6 +330,8 @@
   color: var(--color-fg-light);
   letter-spacing: var(--tracking-normal);
   transition: color var(--duration-fast) var(--ease-out);
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .hamburger-ul li a:hover span,

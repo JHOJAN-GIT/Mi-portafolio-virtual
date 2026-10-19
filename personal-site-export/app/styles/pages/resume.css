@@ -15,11 +15,12 @@
 
 .resume-title {
   font-family: var(--font-display);
-  font-size: var(--text-3xl);
+  font-size: clamp(var(--text-2xl), 7vw, var(--text-3xl));
   font-weight: var(--font-weight-black);
   letter-spacing: var(--tracking-display);
   margin-bottom: 1.25rem;
   color: var(--color-fg-bold);
+  overflow-wrap: break-word;
 }
 
 .resume-summary {
@@ -263,7 +264,7 @@
 
 .skill-tags {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -442,6 +443,8 @@
   letter-spacing: var(--tracking-tight);
   line-height: 1.25;
   transition: color 0.15s ease;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .course-container:hover .course-name {
