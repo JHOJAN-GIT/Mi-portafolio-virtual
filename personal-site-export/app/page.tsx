@@ -4,26 +4,31 @@ import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { shipped } from '@/data/projects';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import {
   AUTHOR_NAME,
-  formatDate,
   SITE_DESCRIPTION,
   SITE_URL,
 } from '@/lib/utils';
-import { getWritingItems } from '@/lib/writing';
+
+/** Genera el mismo slug que Entry.tsx usa para los IDs */
+function projectSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
 
 export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
-  // The homepage builds its openGraph in the root layout, so it only needs
-  // the canonical here. `trailingSlash: true` makes `/` the canonical form.
   alternates: { canonical: `${SITE_URL}/` },
 };
 
 export default function HomePage() {
-  const recentWriting = getWritingItems()
-    .filter((item) => item.date)
-    .slice(0, 3);
+  const featuredProjects = shipped.slice(0, 3);
 
   return (
     <PageWrapper mainClassName="page-main--hero">
@@ -31,52 +36,39 @@ export default function HomePage() {
         nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
       />
       <Hero />
-      <section className="home-writing" aria-labelledby="home-writing-title">
+
+      {/* ── Proyectos destacados ── */}
+      <section className="home-writing" aria-labelledby="home-projects-title">
         <div className="home-writing-header">
-          <h2 id="home-writing-title">Notas &amp; ensayos</h2>
-          <Link href="/writing/" className="home-writing-all">
-            Todo lo escrito <span aria-hidden="true">↗</span>
+          <h2 id="home-projects-title">Proyectos</h2>
+          <Link href="/projects/" className="home-writing-all">
+            Ver todos <span aria-hidden="true">↗</span>
           </Link>
         </div>
-        <div className="home-writing-list">
-          {recentWriting.map((item) => {
-            const content = (
-              <>
-                <span className="home-writing-meta">
-                  {formatDate(item.date)} · {item.source}
-                </span>
-                <div className="home-writing-copy">
-                  <h3>{item.title}</h3>
-                </div>
-                <span className="home-writing-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </>
-            );
 
-            return item.isExternal ? (
-              <a
-                key={item.url}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home-writing-item"
-              >
-                {content}
-                <span className="sr-only"> (se abre en una pestaña nueva)</span>
-              </a>
-            ) : (
-              <Link
-                key={item.url}
-                href={item.url}
-                className="home-writing-item"
-              >
-                {content}
-              </Link>
-            );
-          })}
+        <div className="home-writing-list">
+          {featuredProjects.map((project) => (
+            <Link
+              key={project.title}
+              href={`/projects/#${projectSlug(project.title)}`}
+              className="home-writing-item"
+            >
+              <span className="home-writing-meta">
+                {project.subtitle}
+              </span>
+              <div className="home-writing-copy">
+                <h3>{project.title}</h3>
+                <p className="home-project-brief">{
+                  /* Descripción recortada: primera oración solamente */
+                  project.desc.split('. ')[0] + '.'
+                }</p>
+              </div>
+              <span className="home-writing-arrow" aria-hidden="true">↗</span>
+            </Link>
+          ))}
         </div>
       </section>
     </PageWrapper>
   );
 }
+

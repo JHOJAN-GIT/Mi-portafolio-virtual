@@ -1,77 +1,60 @@
 /**
  * The register of things I have built.
- *
- * Two groups, both kept deliberately:
- *
- * - `shipped` — selected production work Jhojan built or contributed to.
- * - `archive` — earlier experiments and academic projects.
  */
 export type ProjectStatus = 'shipped' | 'archive';
 
 export interface Project {
   title: string;
-  /** Role, venue, or one-line positioning. Rendered as a mono label. */
   subtitle?: string;
-  /**
-   * Public destination for the work. Entries without one are rendered as
-   * visibly inert rather than as cards that look clickable and are not.
-   */
   link?: string;
-  /** Résumé role that backs a shipped entry's dates and numeric claims. */
   sourceWork?: string;
-  /**
-   * Screenshot, where one exists. Optional: the card and the register row are
-   * both designed to read on type and rules alone, so a new entry does not
-   * need art invented for it.
-   */
   image?: string;
-  /**
-   * ISO date Jhojan's work on the project started, or a one-off shipped.
-   * This is project activity, not necessarily a public launch date.
-   */
   date: string;
-  /** ISO date project activity ended. Omitted on one-offs and live work. */
   endDate?: string;
-  /**
-   * The project is still active. Drives the amber `Present` reading
-   * and is mutually exclusive with `endDate`.
-   */
   ongoing?: boolean;
   desc: string;
-  /** Technologies the résumé names for this work. Omitted when it names none. */
   tech?: string[];
   status: ProjectStatus;
 }
 
-/**
- * Hand-ordered, most recent activity first within each group. Live work leads,
- * then sorts by its own start date; finished work sorts by its end (or one-off)
- * date.
- */
 const data: Project[] = [
   // ─── TRABAJO SELECCIONADO ────────────────────────────────────────────────
   {
-    title: 'Automatización de Reportes UNCP',
+    title: 'Sistema de Gestión Hotelera con Chatbot',
+    subtitle: 'Proyecto personal · Full-stack PHP',
+    link: 'https://github.com/JHOJAN-GIT/Sistema-de-Gestion-Hotelera',
+    image: '/images/projects/hotelera/hotelera_11zon.webp',
+    date: '2025-03-01',
+    endDate: '2025-08-01',
+    desc: 'Sistema web completo de administración hotelera construido en PHP con MySQL. El sistema centraliza todas las operaciones de un hotel en un único panel: registro y autenticación de huéspedes, gestión del inventario de habitaciones por tipo (simple, doble, suite), reservas con selección de fechas y cálculo automático del costo total por noche, proceso de check-in con asignación de habitación disponible en tiempo real, check-out con generación del comprobante de estadía y desglose de cargos, cancelación de reservas con política de reembolso configurable, historial completo por huésped y por habitación, y panel administrativo con métricas de ocupación y facturación mensual. Incluye un chatbot integrado que responde consultas de disponibilidad, precios y servicios del hotel directamente desde la interfaz del cliente, usando lógica de reglas y conexión a la base de datos para dar respuestas en tiempo real. La autenticación distingue entre rol administrador y rol recepcionista, con permisos granulares por módulo.',
+    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS', 'XAMPP'],
+    status: 'shipped',
+  },
+  {
+    title: 'Sistema de Puntajes en Tiempo Real para Jurados',
+    subtitle: 'Proyecto académico · Next.js + WebSockets',
+    link: 'https://github.com/JHOJAN-GIT',
+    image: '/images/projects/puntajes/puntajes_11zon.webp',
+    date: '2025-09-01',
+    endDate: '2025-12-01',
+    desc: 'Plataforma de votación y puntajes en tiempo real diseñada para jurados en eventos académicos y culturales de la UNCP. El sistema permite que múltiples jurados ingresen sus calificaciones de forma simultánea desde distintos dispositivos, y el puntaje total se actualiza instantáneamente en el panel de resultados sin necesidad de recargar la página. La primera versión fue construida en PHP con polling periódico (AJAX cada 2 segundos); la segunda versión fue reescrita completamente en Next.js con WebSockets para comunicación bidireccional real, eliminando la latencia y reduciendo la carga del servidor. Cada criterio de evaluación es configurable desde el panel del administrador del evento (originalidad, técnica, presentación, impacto, etc.), los pesos de cada criterio son ponderados automáticamente en el cálculo final, y el ranking de participantes se ordena y actualiza en vivo. Incluye panel de administrador para crear eventos, gestionar participantes, asignar jurados, abrir y cerrar rondas de votación, y exportar resultados en PDF o Excel al finalizar el evento.',
+    tech: ['Next.js', 'React', 'TypeScript', 'WebSockets', 'PHP', 'MySQL'],
+    status: 'shipped',
+  },
+  {
+    title: 'Automatización de Descarga y Emisión de Certificados — UNCP',
     subtitle: 'Dirección de Proyección Social y Extensión Cultural — UNCP',
     link: 'https://uncp.edu.pe/la-universidad/extension-cultural-y-proyeccion-social-2/',
     sourceWork: 'Dirección de Proyección Social y Extensión Cultural — UNCP',
+    image: '/images/projects/automatizacion/automatizacion_11zon.webp',
     date: '2024-01-01',
     ongoing: true,
-    desc: 'Automatización de reportes con Python para la emisión de certificados institucionales. Simulación de descargas manuales y generación de documentos con los detalles requeridos por la oficina.',
-    tech: ['Python', 'Pandas', 'Openpyxl'],
+    desc: 'Solución de automatización en Python para la Dirección de Proyección Social y Extensión Cultural de la UNCP, diseñada para eliminar el proceso manual de descarga de datos del ERP ADESA y la emisión individual de certificados institucionales. El sistema simula el comportamiento de un operario humano navegando el ERP: autentica sesión, navega a los módulos correspondientes, aplica los filtros de periodo y tipo de actividad, descarga las planillas de participantes en formato Excel, y las procesa con Pandas para limpiar, transformar y validar los datos. Con los datos limpios, el pipeline genera automáticamente los certificados en formato PDF para cada participante usando plantillas institucionales predefinidas, rellenando nombre completo, actividad, horas académicas, fecha y firma digital del director. El sistema maneja errores de conexión con reintentos, registra cada operación en un log de auditoría, y envía un resumen por correo al finalizar el proceso. Lo que antes tomaba horas de trabajo manual ahora se ejecuta en minutos con un solo comando.',
+    tech: ['Python', 'Pandas', 'Openpyxl', 'Selenium', 'ReportLab', 'smtplib'],
     status: 'shipped',
   },
 
   // ─── ARCHIVO ─────────────────────────────────────────────────────────────
-  {
-    title: 'Sistema de Gestión Hotelera',
-    subtitle: 'Proyecto académico — UNCP',
-    link: 'https://github.com/JHOJAN-GIT/Sistema-de-Gestion-Hotelera',
-    date: '2026-10-18',
-    desc: 'Sistema web de administración hotelera desarrollado en PHP. Incluye gestión de reservas, check-out, registro de nuevos huéspedes, vista de huéspedes actuales, cancelación de reservas y envío de códigos de verificación por correo. Panel de administrador con autenticación y control de sesiones.',
-    tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
-    status: 'archive',
-  },
   {
     title: 'Dashboard de Gestión de Estudiantes',
     subtitle: 'Práctica Semana 07 Parte 2 — DAW, UNCP',
@@ -122,7 +105,7 @@ const data: Project[] = [
     subtitle: 'Proyecto personal',
     link: 'https://github.com/JHOJAN-GIT/Mi-portafolio-virtual',
     date: '2026-10-18',
-    desc: 'Sitio de portafolio personal construido con Next.js 15, TypeScript y Tailwind CSS. Incluye modo oscuro/claro, diseño responsivo, sección de proyectos, currículum y blog.',
+    desc: 'Sitio de portafolio personal construido con Next.js 16, TypeScript y Tailwind CSS. Incluye modo oscuro/claro, diseño responsivo, sección de proyectos, currículum, cuaderno de aprendizaje y blog.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
     status: 'archive',
   },
