@@ -24,9 +24,9 @@ export default function Footer() {
               <p className="footer-role">{`${current.position} en ${current.name}`}</p>
             ) : null}
             <p className="footer-copyright">
-              &copy; {new Date().getFullYear()} ·{' '}
+              &copy; {new Date().getFullYear()} {AUTHOR_NAME} ·{' '}
               <a
-                href="https://github.com/JHOJAN-GIT/personal-site"
+                href="https://github.com/JHOJAN-GIT/Mi-portafolio-virtual"
                 target="_blank"
                 rel="noopener noreferrer"
               >

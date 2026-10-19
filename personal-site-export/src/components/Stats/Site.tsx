@@ -140,20 +140,11 @@ function measureThisBuild(): Record<string, Measurement> {
 export default async function SiteStats() {
   const githubStats = fetchGitHubStats();
   const measurements = measureThisBuild();
-  const { data: githubData, source } = await githubStats;
+  const { data: githubData } = await githubStats;
   const data = resolveReadings(declarations, {
     ...measurements,
     ...githubData,
   });
 
-  return (
-    <>
-      <Table data={data} />
-      <p className="stats-source-note" data-source={source}>
-        {source === 'github'
-          ? 'Los datos de GitHub describen JHOJAN-GIT/personal-site y se obtuvieron al momento de la compilación. Las métricas medidas provienen de esta compilación y su checkout.'
-          : 'API de GitHub no disponible; los datos aproximados de JHOJAN-GIT/personal-site usan el fallback actualizado el 31 de julio de 2026. Las métricas medidas provienen de esta compilación y su checkout.'}
-      </p>
-    </>
-  );
+  return <Table data={data} />;
 }

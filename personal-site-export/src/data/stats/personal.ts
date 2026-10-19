@@ -1,27 +1,16 @@
 import type { StatDeclaration } from '@/lib/readings';
 import { COUNTRIES_VISITED, CURRENT_CITY } from '@/lib/telemetry';
 
-/**
- * All three are `source: 'profile'`: they are facts typed into
- * `src/data/profile.json`, not counted from anything. The age readout is
- * computed rather than typed, but the datum it is computed from — the birth
- * instant — is still a profile entry, and that is what the mark is telling the
- * reader.
- *
- * `age` declares a key and no value. This file used to carry a `'use client'`
- * directive so it could hold the live readout as a React element, which dragged
- * the declarations, `resolveReadings`, `Table`, and `TableRow` into the client
- * bundle behind it. The element is supplied by
- * `src/components/Stats/Personal.tsx` now, because the reading the server can
- * render depends on when the build ran and only the renderer knows that.
- *
- * No `unit` on the countries count: `53 countries` beside `Countries visited`
- * says nothing the label has not already said.
- */
 const data: StatDeclaration[] = [
   {
     key: 'age',
-    label: 'Edad actual',
+    label: 'Edad',
+    source: 'profile',
+  },
+  {
+    key: 'location',
+    label: 'Ciudad',
+    value: CURRENT_CITY,
     source: 'profile',
   },
   {
@@ -29,12 +18,48 @@ const data: StatDeclaration[] = [
     label: 'Países visitados',
     value: COUNTRIES_VISITED,
     source: 'profile',
-    link: 'https://www.google.com/maps/d/embed?mid=1iBBTscqateQ93pWFVfHCUZXoDu8&z=2',
   },
   {
-    key: 'location',
-    label: 'Ciudad actual',
-    value: CURRENT_CITY,
+    key: 'university',
+    label: 'Universidad',
+    value: 'UNCP — Huancayo, Perú',
+    source: 'profile',
+    link: 'https://www.uncp.edu.pe',
+  },
+  {
+    key: 'career',
+    label: 'Carrera',
+    value: 'Ing. de Sistemas',
+    source: 'profile',
+  },
+  {
+    key: 'cycle',
+    label: 'Ciclo actual',
+    value: '8.°',
+    source: 'profile',
+  },
+  {
+    key: 'computing_since',
+    label: 'Programando desde',
+    value: '2019',
+    source: 'profile',
+  },
+  {
+    key: 'first_lang',
+    label: 'Primer lenguaje',
+    value: 'C++',
+    source: 'profile',
+  },
+  {
+    key: 'favorite_stack',
+    label: 'Stack favorito',
+    value: 'React + TypeScript + Tailwind + Vite',
+    source: 'profile',
+  },
+  {
+    key: 'events',
+    label: 'Congresos asistidos',
+    value: 'CONEII 2025 Piura · PERUMEC 2026 Cusco',
     source: 'profile',
   },
 ];
