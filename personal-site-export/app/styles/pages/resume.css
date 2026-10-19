@@ -423,18 +423,6 @@
   gap: 0.75rem;
 }
 
-.course-number {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--tracking-label);
-  color: var(--color-accent);
-  white-space: nowrap;
-  background: rgba(59, 89, 152, 0.1);
-  border-radius: var(--radius-full);
-  padding: 0.2em 0.6em;
-}
-
 .course-name {
   font-family: var(--font-display);
   font-size: var(--text-base);
@@ -466,10 +454,6 @@
 [data-theme='dark'] .course-container:hover {
   border-color: rgba(91, 141, 184, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme='dark'] .course-number {
-  background: rgba(91, 141, 184, 0.15);
 }
 
 /* ── Referencias ── */
