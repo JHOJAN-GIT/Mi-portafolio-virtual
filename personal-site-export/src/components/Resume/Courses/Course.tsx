@@ -7,9 +7,14 @@ interface CourseProps {
 export default function Course({ data }: CourseProps) {
   return (
     <li className="course-container">
-      <a href={data.link}>
-        <span className="course-number">{data.number}:</span>
-        <span className="course-name">{data.title}</span>
+      <a href={data.link} className="course-link">
+        <div className="course-header">
+          <span className="course-number">{data.number}</span>
+          <span className="course-name">{data.title}</span>
+        </div>
+        {data.description && (
+          <p className="course-description">{data.description}</p>
+        )}
       </a>
     </li>
   );

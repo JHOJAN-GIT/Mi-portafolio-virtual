@@ -1,112 +1,16 @@
 /* ========================================
-   RESUME PAGE STYLES
+   RESUME PAGE — Diseño profesional moderno
    ======================================== */
 
-/* Section headers sit left, under a heavy rule — the same device
-   that opens the readout strip on the home page. */
-.resume-page .education .title,
-.resume-page .experience .title,
-.resume-page .skills .title,
-.resume-page .courses .title,
-.resume-page .references .title {
-  margin-bottom: 2.5rem;
-  text-align: left;
-}
-
-.resume-page .education .title h2,
-.resume-page .experience .title h2,
-.resume-page .skills .title h2,
-.resume-page .courses .title h2,
-.resume-page .references .title h2 {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-fg-light);
-  display: block;
-  margin: 0;
-  padding-top: 0.875rem;
-  border-top: var(--rule) solid var(--color-fg-bold);
-}
-
-.resume-page .skills {
-  margin-top: 2em;
-}
-
-.resume-page .skills .title p {
-  font-size: var(--text-md);
-}
-
-.resume-page .courses {
-  padding-top: 1em;
-}
-
-.resume-page .courses .course-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 3rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Paper falls under this breakpoint too — the print viewport is ~690-710px —
-   so `print.css` re-declares the two-column grid for print. */
-@media (max-width: 735px) {
-  .resume-page .courses .course-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-.resume-page .references {
-  margin: var(--spacing-8) 0;
-}
-
-/* Resume page specific */
 .resume-page {
   max-width: var(--measure-page);
   margin: 0 auto;
 }
 
+/* ── Header ── */
 .resume-header {
   text-align: left;
   margin-bottom: 2rem;
-}
-
-/* The title keeps its own bottom margin, so the row leaves the space below the
-   heading exactly where it was and only parks the JSON chip on its baseline. */
-.resume-header-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* Mono chip linking to the machine-readable résumé. Deliberately the same
-   affordance as `.writing-rss-link`: a label-sized control that opts out of the
-   accent underline `base/links.css` paints on prose links. `--text-ui`, not
-   `--text-2xs`, because it is interactive rather than annotation. */
-.resume-json-link {
-  font-family: var(--font-mono);
-  font-size: var(--text-ui);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-fg-light);
-  text-decoration: none;
-  background-image: none;
-  padding: 0.35rem 0.6rem;
-  border: var(--rule) solid var(--color-control-border);
-  border-radius: var(--radius-sm);
-  transition:
-    color var(--duration-instant) var(--ease-out),
-    border-color var(--duration-instant) var(--ease-out);
-}
-
-.resume-json-link:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
 }
 
 .resume-title {
@@ -126,14 +30,10 @@
   margin: 0;
 }
 
-/* Section index — a row of mono labels on a rule, not a pill bar. */
+/* ── Nav sticky ── */
 .resume-nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  /* Row gap matters: the links wrap below ~375px, and the active indicator
-     used to be positioned relative to the bar rather than the link, so it
-     drew straight through the second row. */
   gap: 0.5rem 1.75rem;
   margin-top: var(--spacing-8);
   margin-bottom: var(--spacing-4);
@@ -147,10 +47,7 @@
 }
 
 @media (max-width: 735px) {
-  .resume-nav {
-    top: var(--header-height-mobile);
-    gap: 0 1rem;
-  }
+  .resume-nav { top: var(--header-height-mobile); gap: 0 1rem; }
 }
 
 .resume-nav-link {
@@ -169,22 +66,13 @@
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.resume-nav-link:hover {
-  color: var(--color-fg-bold);
-  background: transparent;
-}
+.resume-nav-link:hover { color: var(--color-fg-bold); }
+.resume-nav-link.active { color: var(--color-accent); }
 
-.resume-nav-link.active {
-  color: var(--color-accent);
-}
-
-/* Anchored to the link itself, so a wrapped row underlines its own item. */
 .resume-nav-link.active::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 0; right: 0; bottom: 0;
   height: var(--rule-strong);
   background: var(--color-accent);
 }
@@ -194,6 +82,7 @@
   outline-offset: 3px;
 }
 
+/* ── Content layout ── */
 .resume-content {
   display: flex;
   flex-direction: column;
@@ -205,8 +94,380 @@
   scroll-margin-top: calc(var(--header-height) + var(--scroll-offset-resume));
 }
 
-/* Printed resumes need contact details, which live in the footer on screen.
-   Shown only by print.css. */
-.resume-print-contact {
-  display: none;
+.resume-print-contact { display: none; }
+
+/* ── Section title — mono label sobre regla ── */
+.resume-page .education .title,
+.resume-page .experience .title,
+.resume-page .skills .title,
+.resume-page .courses .title,
+.resume-page .references .title {
+  margin-bottom: 2.5rem;
 }
+
+.resume-page .education .title h2,
+.resume-page .experience .title h2,
+.resume-page .skills .title h2,
+.resume-page .courses .title h2,
+.resume-page .references .title h2 {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+  display: block;
+  margin: 0;
+  padding-top: 0.875rem;
+  border-top: var(--rule) solid var(--color-fg-bold);
+}
+
+/* ================================================================
+   EDUCACIÓN
+   ================================================================ */
+
+.degree-container {
+  padding: 1.75rem 0;
+  border-bottom: var(--rule) solid var(--color-border);
+}
+
+.degree-container:first-child {
+  border-top: var(--rule) solid var(--color-border);
+}
+
+.degree-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 0.875rem;
+}
+
+.degree-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.degree {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-fg-bold);
+  margin: 0 0 0.35rem;
+  line-height: 1.2;
+}
+
+.school {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-fg-light);
+  margin: 0;
+}
+
+.school a {
+  color: var(--color-accent);
+  text-decoration: none;
+  background-image: none;
+}
+
+.school a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.degree-dates {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.degree-date-range {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg-light);
+  white-space: nowrap;
+}
+
+.degree-current-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(59, 89, 152, 0.1);
+  border: 1px solid rgba(59, 89, 152, 0.25);
+  border-radius: var(--radius-full);
+  padding: 0.2em 0.65em;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .degree-current-badge {
+  background: rgba(91, 141, 184, 0.12);
+  border-color: rgba(91, 141, 184, 0.3);
+}
+
+.degree-description {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-fg-light);
+  margin: 0;
+  max-width: 68ch;
+}
+
+@media (max-width: 640px) {
+  .degree-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .degree-dates { align-items: flex-start; }
+  .degree { font-size: var(--text-lg); }
+}
+
+/* ================================================================
+   HABILIDADES — Cards con descripción
+   ================================================================ */
+
+.resume-page .skills { margin-top: 2em; }
+
+.skill-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.skill-group-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: var(--rule) solid var(--color-border);
+}
+
+.skill-tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Skill card ── */
+.skill-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-subtle);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Barra de nivel izquierda según tier */
+.skill-tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+}
+
+.skill-tag--deep::before   { background: var(--color-accent); }
+.skill-tag--working::before { background: rgba(59, 89, 152, 0.5); }
+.skill-tag--familiar::before { background: var(--color-border-alt); }
+
+.skill-tag:hover {
+  border-color: var(--color-border-alt);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.skill-tag-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.skill-tag-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-fg-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.skill-tag-tier {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: var(--radius-full);
+  padding: 0.15em 0.6em;
+}
+
+.skill-tag-tier--deep {
+  color: var(--color-accent);
+  background: rgba(59, 89, 152, 0.1);
+}
+.skill-tag-tier--working {
+  color: var(--color-fg-light);
+  background: rgba(59, 89, 152, 0.06);
+}
+.skill-tag-tier--familiar {
+  color: var(--color-fg-muted);
+  background: var(--color-surface-subtle);
+}
+
+.skill-tag-desc {
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-fg-light);
+  margin: 0;
+}
+
+/* Dark mode */
+[data-theme='dark'] .skill-tag {
+  background: rgba(28, 35, 51, 0.5);
+  border-color: rgba(91, 141, 184, 0.12);
+}
+
+[data-theme='dark'] .skill-tag:hover {
+  border-color: rgba(91, 141, 184, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .skill-tag-tier--deep {
+  background: rgba(91, 141, 184, 0.15);
+}
+
+[data-theme='dark'] .skill-tag-tier--working {
+  background: rgba(91, 141, 184, 0.08);
+}
+
+/* ================================================================
+   CURSOS — Cards visuales con descripción
+   ================================================================ */
+
+.resume-page .courses { padding-top: 1em; }
+
+.resume-page .courses .course-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 735px) {
+  .resume-page .courses .course-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.course-container {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.course-container:hover {
+  border-color: var(--color-border-alt);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.course-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  background-image: none;
+  height: 100%;
+}
+
+.course-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.course-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-accent);
+  white-space: nowrap;
+  background: rgba(59, 89, 152, 0.1);
+  border-radius: var(--radius-full);
+  padding: 0.2em 0.6em;
+}
+
+.course-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-fg-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.25;
+  transition: color 0.15s ease;
+}
+
+.course-container:hover .course-name {
+  color: var(--color-accent);
+}
+
+.course-description {
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-fg-light);
+  margin: 0;
+}
+
+/* Dark mode */
+[data-theme='dark'] .course-container {
+  border-color: rgba(91, 141, 184, 0.12);
+}
+
+[data-theme='dark'] .course-container:hover {
+  border-color: rgba(91, 141, 184, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .course-number {
+  background: rgba(91, 141, 184, 0.15);
+}
+
+/* ── Referencias ── */
+.resume-page .references { margin: var(--spacing-8) 0; }

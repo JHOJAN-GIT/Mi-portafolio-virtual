@@ -90,18 +90,8 @@ export default function Skills({ skills, categories }: SkillsProps) {
         <h2>Habilidades</h2>
       </div>
       <div className="skill-button-container">{buttonElements}</div>
-      {/* Stays hidden: print.css un-hides every group, so a visible count
-          would contradict the page it is printed on. */}
       <p className="sr-only" role="status">
         {filterStatus}
-      </p>
-      <p className="skill-tier-legend">
-        <span className="skill-tier-legend-label">Conocimiento</span>
-        <span className="skill-tag--deep">Avanzado</span>
-        <span aria-hidden="true">·</span>
-        <span className="skill-tag--working">Intermedio</span>
-        <span aria-hidden="true">·</span>
-        <span className="skill-tag--familiar">Básico</span>
       </p>
       <div className="skill-groups">
         {groupedSkills.map(({ category, skills: categorySkills }) => {

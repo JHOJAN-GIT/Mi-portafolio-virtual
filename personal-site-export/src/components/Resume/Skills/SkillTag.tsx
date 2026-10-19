@@ -7,16 +7,12 @@ interface SkillTagProps {
 
 export type SkillTier = 'deep' | 'working' | 'familiar';
 
-const TIER_DESCRIPTION: Record<SkillTier, string> = {
-  deep: 'deep knowledge',
-  working: 'working knowledge',
-  familiar: 'familiarity',
+const TIER_LABEL: Record<SkillTier, string> = {
+  deep: 'Avanzado',
+  working: 'Intermedio',
+  familiar: 'Básico',
 };
 
-/**
- * The 1–5 score is a self-assessment, so it is reported at the precision it
- * has: a coarse tier, not a plotted value with an axis.
- */
 export function knowledgeTier(competency: number): SkillTier {
   if (competency >= MAX_COMPETENCY) return 'deep';
   if (competency >= 4) return 'working';
@@ -24,13 +20,20 @@ export function knowledgeTier(competency: number): SkillTier {
 }
 
 export default function SkillTag({ data }: SkillTagProps) {
-  const { competency, title } = data;
+  const { competency, title, description } = data;
   const tier = knowledgeTier(competency);
 
   return (
-    <span className={`skill-tag skill-tag--${tier}`}>
-      <span className="skill-tag-name">{title}</span>
-      <span className="sr-only">, {TIER_DESCRIPTION[tier]}</span>
-    </span>
+    <div className={`skill-tag skill-tag--${tier}`}>
+      <div className="skill-tag-top">
+        <span className="skill-tag-name">{title}</span>
+        <span className={`skill-tag-tier skill-tag-tier--${tier}`}>
+          {TIER_LABEL[tier]}
+        </span>
+      </div>
+      {description && (
+        <p className="skill-tag-desc">{description}</p>
+      )}
+    </div>
   );
 }
